@@ -11,7 +11,7 @@ export default function Login(){
                 <p>Password</p>
                 <input type="text" id="pwd-input"></input>
                 <button>Login</button>
-                <a href="/register">Register...?</a>
+                <Link to="/register">Register...?</Link>
             </form>
         </div>
     )

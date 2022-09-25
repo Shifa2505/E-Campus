@@ -1,4 +1,5 @@
 import {React} from "react";
+import { Link } from "react-router-dom";
 import "./Register.css"
 
 export default function Register(){
@@ -18,7 +19,7 @@ export default function Register(){
                 <p>Password</p>
                 <input type="text" id="pwd-input"></input>
                 <button>Register</button>
-                <a href="/login">Already have an account...?</a>
+                <Link to="/login">Already have an account...?</Link>
             </form>
         </div>
     )
