@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar"
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import AddQuestion from "./components/AddQuestion/AddQuestion";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 
@@ -12,10 +13,11 @@ export default function App(){
         <>
             <Navbar />
             <Routes>
+                <Route path="/" element={<Login/>}></Route>
                 <Route path="/login" element={<Login/>}></Route>
                 <Route path="/register" element={<Register/>}></Route>
+                <Route path="/ask" element={<AddQuestion/>}></Route>
             </Routes>      
         </>
     )
-    
 }
