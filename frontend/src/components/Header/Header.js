@@ -1,11 +1,11 @@
 import React from 'react';
-import './css/Navbar.css';
+import './Header.css';
 import InboxIcon from '@mui/icons-material/Inbox';
 import SearchIcon from '@mui/icons-material/Search';
 import { Avatar } from '@mui/material';
 import logo from './images/th-removebg-preview.png';
 
-function Navbar(){
+function Header(){
   return(  <nav className="navbar navbar-expand-lg navbar-dark ">
     <div className="container-fluid">
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,4 +43,4 @@ function Navbar(){
   )
 }
 
-export default Navbar
+export default Header
