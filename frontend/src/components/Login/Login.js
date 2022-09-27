@@ -7,9 +7,11 @@ export default function Login(){
         < div className="login">
             <form>
                 <p>Email</p>
-                <input type="text" id="uname-input"></input>
+                <small>Must be between 8 to 20 chars long and can only contain alphanumeric char, '.' and '_'</small>
+                <input type="text" id="uname-input" pattern="^[A-Za-z][A-Za-z0-9_]{7,29}$"></input>
                 <p>Password</p>
-                <input type="text" id="pwd-input"></input>
+                <small>Must be between 8 to 20 chars long</small>
+                <input type="password" id="pwd-input"></input>
                 <button>Login</button>
                 <Link to="/register">Register...?</Link>
             </form>

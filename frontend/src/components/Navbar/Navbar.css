@@ -73,8 +73,8 @@
   outline: none;
 }
 .d-flex{
-  width: 100%;
-  flex-grow:1;
+  width: 40%;
+  /* flex-grow:1; */
   /* border:1px solid red; */
   background:white;
 }
