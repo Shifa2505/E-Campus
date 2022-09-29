@@ -1,0 +1,111 @@
+.add-que {
+  display: flex;
+  width: 100%;
+  background-color: rgba(238, 238, 238, 0.568);
+  height: 100vh;
+  justify-content: center;
+  text-align: left;
+}
+
+.add-que-content {
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  max-width: 800px;
+}
+
+.add-que-title {
+  display: flex;
+  width: 100%;
+}
+
+.add-que-title > h1 {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.que-container {
+  display: flex;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(66, 42, 42, 0.19);
+}
+
+.add-que-opts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.add-que-opt {
+  /* display: flex; */
+  flex-direction: column;
+  width: 100%;
+}
+
+.opt-title {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+  font-size: 0.9rem;
+}
+
+.opt-title > h3 {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+}
+
+.opt-title > small {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.opt-title > input {
+  margin: 5px 0px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  outline: none;
+}
+
+.opt-title > input::placeholder {
+  color: #ddd;
+}
+.opt-title > input:focus {
+  border: 1px solid #EF5B0C;
+  box-shadow: 0 2px 3px 0 #D1512D ;
+}
+
+.tags ::placeholder{
+color: #ddd;
+}
+
+.tags :focus {
+  border: 1px solid #EF5B0C;
+  box-shadow: 0 2px 3px 0 #D1512D ;
+}
+
+.quill {
+  height: 100%;
+}
+
+.react-quill {
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.ql-editor {
+  height: 200px;
+}
+
+.button {
+  max-width: fit-content;
+  margin: 10px 0px;
+}
+
+button:hover {
+  background-color: #FFAE6D;
+}
