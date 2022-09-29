@@ -74,6 +74,7 @@
 }
 .d-flex{
   width: 40%;
+  height: 50%;
   /* flex-grow:1; */
   /* border:1px solid red; */
   background:white;
