@@ -1,0 +1,119 @@
+
+.main{
+  display: flex;
+  padding: 30px 10px;
+  flex: 0.75;
+  flex-direction: column;
+}
+.main-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main-top{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.main-top > h2{
+  font-weight: 400;
+  font-size: 25px;
+  color: rgba(0,0,0,0.8);
+}
+.main-desc {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.info {
+  display: flex;
+  align-items: center;
+  font-size: small;
+}
+
+.info > p {
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0 10px;
+}
+
+.info > p > span {
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0 5px;
+}
+
+.all-options {
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.all-option{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.all-options > .MuiSvgIcon-root {
+  color: rgba(0, 0, 0, 0.25);
+  font-size: large;
+  margin: 5px 0;
+}
+
+/* .ql-syntax {
+  display: flex;
+  width: 90%;
+  overflow: hidden;
+} */
+pre {
+  display: flex;
+  width: 90px;
+  flex-wrap: wrap;
+}
+button{
+padding: 8px 15px;
+background-color: #F77E21;
+color: #fff;
+border: 1.5px solid #EF5B0C;
+outline: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.all-questions-left{
+  display: flex;
+  margin-right: 30px;
+  max-width: fit-content;
+}
+.question-answer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.user{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+.user >small{
+  color: rgba(0,0,0,0.7);
+  margin-bottom: 5px;
+}
+.user-details{
+  display: flex;
+  align-items: center;
+}
+.user-details >p{
+  margin-left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: small;
+  color: #0151f0d8;
+}
+.all-questions-container{
+  display: flex;
+  margin: 30px;
+}
