@@ -35,7 +35,10 @@ function MainQue(){
                 </p>
               </div>
             </div>
-            <div className="all-questions">
+            <div className="all-questions" style={{
+              borderBottom: "1px solid #eee",
+
+            }}>
               <div className="all-questions-container">
                 <div className="all-questions-left">
                   <div className="all-options">
@@ -46,16 +49,18 @@ function MainQue(){
 
                     <p className="arrow">▼</p>
 
-                    <Bookmark/>
+                    <Bookmark style={{color: "rgba(0, 0, 0, 0.25)",
+                    fontSize: "large",
+                    margin: "5px 0", }} />
 
-                    <History />
+                    <History style={{color: "rgba(0, 0, 0, 0.25)",
+                    fontSize: "large",
+                    margin: "5px 0", }}/>
                   </div>
                   </div>
                 </div>
                 <div className="question-answer">
-                <div style={{width: "80%" , textAlign:"justify" }}>
                   <p>Here is question body</p>
-                </div>
                   <div className="user">
                     <small>
                       asked "Timestamp"
@@ -76,7 +81,6 @@ function MainQue(){
                               Timestamp
                             </small>
                           </p>
-                        ))}
                     </div>
                     <p onClick={() => setShow(!show)}>Add a comment</p>
                     {show && (
@@ -88,12 +92,13 @@ function MainQue(){
                             border: "1px solid rgba(0, 0, 0, 0.2)",
                             borderRadius: "3px",
                             outline: "none",
+                            width : "100%",
                           }}
                           type="text"
                           placeholder="Add your comment..."
                           rows={5}
-                        />
-                        <button>
+                        ></textarea>
+                        <button style={{maxWidth: "fit-content",}}>
                           Add comment
                         </button>
                       </div>
@@ -104,26 +109,28 @@ function MainQue(){
             </div>
             <div
               style={{
+                display:"flex",
                 flexDirection: "column",
+                marginTop : "30px",
+                borderBottom: "1px solid #eee"
               }}
-              className="all-questions"
-            >
+              className="all-questions">
               <p
                 style={{
-                  marginBottom: "20px",
-                  fontSize: "1.3rem",
-                  fontWeight: "300",
+                  marginBottom : "20px",
+                  fontSize :"1.3rem",
+                  fontWeight : "300px",
+                  color: "rgba(0, 0, 0, 0.4)",
                 }}
+
               >
                 No of Answers
               </p>
 
-                  <div
-                    style={{
-                      borderBottom: "1px solid #eee",
-                    }}
-
-                    className="all-questions-container"
+                  <div className="all-questions-container"
+                  style={{
+                    marginTop:"0px",
+                  }}
                   >
                     <div className="all-questions-left">
                       <div className="all-options">
@@ -133,18 +140,22 @@ function MainQue(){
 
                         <p className="arrow">▼</p>
 
-                        <Bookmark />
+                        <Bookmark style={{color: "rgba(0, 0, 0, 0.25)",
+                        fontSize: "large",
+                        margin: "5px 0", }}/>
 
-                        <History />
+                        <History style={{color: "rgba(0, 0, 0, 0.25)",
+                        fontSize: "large",
+                        margin: "5px 0", }}/>
                       </div>
                     </div>
                     <div className="question-answer">
-
-                      <div className="author">
+                    <p>Here is question body</p>
+                      <div className="user">
                         <small>
                           asked "Timestamp"
                         </small>
-                        <div className="auth-details">
+                        <div className="user-details">
                           <Avatar />
                           <p>
                           Username
@@ -153,7 +164,6 @@ function MainQue(){
                       </div>
                     </div>
                   </div>
-
             </div>
             {/* <div className="questions">
               <div className="question">
@@ -167,8 +177,8 @@ function MainQue(){
           <div className="main-answer">
             <h3
               style={{
-                fontSize: "22px",
-                margin: "10px 0",
+                fontSize: "20px",
+                marginTop: "30px",
                 fontWeight: "400",
               }}
             >
@@ -185,7 +195,7 @@ function MainQue(){
           <button
 
             style={{
-              marginTop: "100px",
+              marginTop: "50px",
               maxWidth: "fit-content",
             }}
           >

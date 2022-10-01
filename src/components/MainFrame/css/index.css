@@ -1,0 +1,11 @@
+.main-index{
+  display: flex;
+  min-height: 90vh;
+  min-width: fit-content;
+}
+.main-index-content{
+  display:flex;
+  width: 100%;
+  justify-content: center;
+  text-align: left;
+}
