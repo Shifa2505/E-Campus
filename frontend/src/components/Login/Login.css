@@ -1,0 +1,49 @@
+*,body{
+    margin: 0;
+    padding: 0;
+}
+form>p,form>button{
+    font-size: 1.5em;
+}
+form>small{
+    font-size: 1.2em;
+}
+.login{
+    border-radius: 2px;
+    /* border:1px solid; */
+    padding:20px;
+    margin:10px;
+    width: 80%;
+    min-width: fit-content;
+    margin: auto;
+    box-shadow: 0px 0px 10px 1px #888888;
+}
+.login>p{
+    text-decoration: underline;
+}
+.login>p:hover{
+    font-weight: bold;
+}
+form > p{
+    font-weight: bold;
+}
+form > input[type="text"],form > input[type="password"] {
+    width: 100%;
+    height: 3em;
+    margin: 10px auto;
+    border:2px solid hsl(180, 100%, 40%);
+    /* font-size:1.5em; */
+}
+
+form > button{
+    display: block;
+    background-color: #FFAB73;
+    width:100%;
+    height: 2em;
+    transition: background-color 1s;
+    margin: 10px 0px;
+}
+
+form > button:hover{
+    background-color:hsl(143, 100%, 50%);
+}
