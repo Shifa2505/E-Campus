@@ -39,22 +39,22 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 
 app.post("/login",(req,res)=>{
-  // console.log(req.body.uname_input)
-  // console.log(req.body.pwd_input)
-  let check = models.userModel.find({username:req.body.username,password:req.body.password})
-  // console.log(check)
-  check.then((data)=>{
-    console.log(data[0])
-    if(data[0]!==undefined){
-      res.redirect("http://localhost:3000/home")
-      // return
-    }
-    else{
-      res.redirect("http://localhost:3000/")
-
+  
+  // console.log(req.body)
+  console.log(`trying login for "${req.body.username}" with "${req.body.password}"`)
+  models.userModel.find({username:req.body.username,password:req.body.password},function (err,docs){
+    if (err) {console.log(err);}
+    else {
+      console.log(docs[0])
+      if(docs[0]!==undefined){
+        // res.redirect("http://localhost:3000/home")
+        res.send(JSON.stringify({ok:true}))
+      }
+      else{
+        res.send(JSON.stringify({ok:false}))
+      }
     }
   })
-  // res.send("alert('no user available'); window.location.href = 'http://localhost:3000/'; ");
 
 })
 
@@ -69,7 +69,7 @@ app.post("/newUser",(req,res)=>{
     password: req.body.password
 })
   newUser.save()
-  console.log(newUser)
+  console.log(`New User registerd as ${newUser.username}`)
   res.redirect("http://localhost:3000/home")
 })
 

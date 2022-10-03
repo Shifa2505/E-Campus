@@ -4,3 +4,7 @@
 /* body{
     background-color: rgb(0, 0, 0, 0.2);
 } */
+
+#root{
+    height:max-content;
+}
