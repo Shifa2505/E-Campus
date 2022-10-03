@@ -18,9 +18,9 @@ function Navbar(){
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
       <div className="nav-centre mx-auto">
-      <form class="d-flex">
+      <form className="d-flex">
       <SearchIcon style={{color:"#ccc", marginTop:"6px"}}/>
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
       </form>
       </div>
       <ul className="navbar-nav ms-auto">
