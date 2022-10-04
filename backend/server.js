@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 8000;
 const models = require("./models")
 const db = require("./db");
+const { mongo } = require("mongoose");
 db.connect();
 
 app.use(cors());
@@ -73,8 +74,39 @@ app.post("/newUser",(req,res)=>{
   res.redirect("http://localhost:3000/home")
 })
 
+app.post("/addQuestion",(req,res)=>{
+  let newQuestion = new models.questionModel({
+    title:req.body.title,
+    body:req.body.body,
+    tags:req.body.tags,
+    user:req.body.user,
+    created_at:new Date()
+  })
+  newQuestion.save()
+  console.log(newQuestion)
+  res.send(JSON.stringify({status:"true"}))
+})
+
 app.get("/getData",(req,res)=>{
   res.send(JSON.stringify({name:"Manav"}))
+})
+
+app.get("/getQuestions",(req,res)=>{
+  models.questionModel.find((err,docs)=>{
+    if(err){
+      console.log(err.message)
+    }
+    else{
+      // console.log(docs)
+      res.send(JSON.stringify(docs))
+    }
+  })
+})
+
+app.get("/question/:id",(req,res)=>{
+  models.questionModel.find({_id:req.params.id},(err,docs)=>{
+    res.send(docs)
+  })
 })
 
 app.listen(PORT, () => {

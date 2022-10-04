@@ -20,11 +20,11 @@ const questionSchema = new mongoose.Schema({
       type : Date,
       default : Date.now(),
     },
-    user : Object,
-    comment_id: {
-      type : mongoose.Schema.Types.ObjectId,
-      ref : "Comments",
-    },
+    user : String
+    // comment_id: {
+    //   type : mongoose.Schema.Types.ObjectId,
+    //   ref : "Comments",
+    // }
 });
 const questionModel = mongoose.model("Questions",questionSchema);
 

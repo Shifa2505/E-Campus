@@ -1,6 +1,6 @@
 import React from 'react';
 import {FilterList} from "@mui/icons-material";
-import AllQuestions from "./AllQuestions";
+import AllQuestions from "./AllQuestionBackup";
 import {Link} from 'react-router-dom';
 import "./css/Main.css";
 

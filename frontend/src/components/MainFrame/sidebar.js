@@ -16,7 +16,7 @@ function Sidebar(){
     <div className="sideLink">
     <div className="sideTags">
     <HomeIcon style={{color:"rgba(245,162,9)", marginRight:"5px" , fontSize:"1rem"}}/>
-    <Link to="/">Home</Link>
+    <Link to="/home">Home</Link>
     </div>
     </div>
     </div>

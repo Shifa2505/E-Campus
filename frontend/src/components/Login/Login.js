@@ -63,13 +63,13 @@ export default class Login extends Component{
         if(this.state.isRegistered){
             // this.getData()
             return(
-                < div className="login" >
+                <div className="login" >
                     
                     {/* <p>{this.state.data.name}</p> */}
                     <form action="http://localhost:8000/login" method="post" onSubmit={this.tryLogin}>
                         <p>Email</p>
                         {/* <small>Must be between 8 to 20 chars long and can only contain alphanumeric char, '.' and '_'</small> */}
-                        <input type="text" name="username" onChange={this.props.user}></input>
+                        <input type="text" name="username"></input>
                         <p>Password</p>
                         {/* <small>Must be between 8 to 20 chars long</small> */}
                         <input type="text" name="password"></input>
