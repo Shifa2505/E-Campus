@@ -71,7 +71,7 @@ app.post("/newUser",(req,res)=>{
 })
   newUser.save()
   console.log(`New User registerd as ${newUser.username}`)
-  res.redirect("http://localhost:3000/home")
+  res.redirect("http://localhost:3000/")
 })
 
 app.post("/addQuestion",(req,res)=>{
@@ -105,8 +105,32 @@ app.get("/getQuestions",(req,res)=>{
 
 app.get("/question/:id",(req,res)=>{
   models.questionModel.find({_id:req.params.id},(err,docs)=>{
+    console.log(docs)
     res.send(docs)
   })
+})
+
+app.post("/newAnswer",(req,res)=>{
+  console.log(req.body)
+  // let answers=[]
+  // models.questionModel.find({_id:req.body.question},(err,docs)=>{
+  //   answers=docs[0].answer
+  //   answers.push(req.body.answer)
+  //   console.log(answers)
+  //   // models.questionModel.updateOne({_id:req.body.question},{answers:answers})
+  //   // .then(()=>{
+  //   //   console.log(docs[0])
+  //   // })
+  // })
+  models.questionModel.findOneAndUpdate({_id:req.body.question}, {$push : {answers : {body:req.body.answer,user:req.body.user,time:new Date().toDateString()}}}, {upsert: true}, function(err, doc) {
+    if (err) return res.send(500, {error: err});
+    else{
+      // console.log(doc)
+      return res.send('Succesfully saved.');
+    }
+});
+  // res.send(JSON.stringify({status:"ok"}))
+
 })
 
 app.listen(PORT, () => {

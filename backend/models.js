@@ -20,7 +20,11 @@ const questionSchema = new mongoose.Schema({
       type : Date,
       default : Date.now(),
     },
-    user : String
+    user : String,
+    answers:{
+      type:Array,
+      default:[]
+    }
     // comment_id: {
     //   type : mongoose.Schema.Types.ObjectId,
     //   ref : "Comments",
@@ -43,21 +47,22 @@ const commentSchema = new mongoose.Schema({
 const commentModel = mongoose.model("Comments", commentSchema);
 
 const answerSchema = new mongoose.Schema({
-    question_id :{
-      type : mongoose.Schema.Types.ObjectId,
-      ref : "question",
-    },
+    // question_id :{
+    //   type : mongoose.Schema.Types.ObjectId,
+    //   ref : "question",
+    // },
     answer : String,
     created_at : {
-      type : Date,
-      default : Date.now(),
+      type : String,
+      default : new Date().toDateString(),
     },
     user : Object,
-    comment_id: {
-      type : mongoose.Schema.Types.ObjectId,
-      ref : "Comments",
-    },
+    // comment_id: {
+    //   type : mongoose.Schema.Types.ObjectId,
+    //   ref : "Comments",
+    // },
 });
+
 const answerModel = mongoose.model("Answers",answerSchema)
 
 // exporting all the mongoose models

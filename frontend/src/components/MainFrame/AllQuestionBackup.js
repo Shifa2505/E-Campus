@@ -42,10 +42,12 @@ function AllQuestions(){
 //   let questionDisplays = questions.map((question)=>{
 //     <OneQuestion title={question.title} user={question.user} tags={question.tags} timestamp={question.created_at} body={question.body}/>
 //   })
-console.log(questions)
+// console.log(questions)
   return(
   <div className="allquestion-frame">
-    {questions.map((question)=>{return(
+    {questions.map((question)=>{
+      // console.log(question._id)
+      return(
     <OneQuestion key={question._id} 
     url={question._id}
     title={question.title} 

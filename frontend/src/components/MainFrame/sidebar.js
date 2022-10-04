@@ -42,7 +42,7 @@ function Sidebar(){
         <p className="test">Test</p>
         </div>
       <div className="public-tag">
-            <Link to="/test.js">Start Test</Link>
+            <Link to="/test">Start Test</Link>
         </div>
         </div>
     </div>

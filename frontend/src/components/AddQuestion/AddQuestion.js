@@ -17,7 +17,7 @@ export default class AddQuestion extends Component {
     newQuestion["title"]=document.querySelector(".question-title-input").value
     newQuestion["body"]=document.querySelector(".quill .ql-container .ql-editor").innerHTML
     let tags = []
-    document.querySelectorAll(".go2286398182 > span").forEach((x)=>tags.push(x.textContent))
+    document.querySelectorAll(".rti--tag").forEach((x)=>tags.push(x.textContent))
     newQuestion["tags"] = tags
     newQuestion["user"] = window.localStorage.getItem("username")
     console.log(newQuestion)

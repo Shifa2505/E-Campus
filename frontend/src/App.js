@@ -9,6 +9,7 @@ import Main from "./components/MainFrame/index"
 import SingleQuestion from "./components/SingleQuePage/index"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
+import Test from "./components/MainFrame/test"
 
 export default class App extends Component{
     // const text = fetch("localhost/8000")
@@ -30,7 +31,8 @@ export default class App extends Component{
                     {/* <Route path="/register" element={<Register/>}></Route> */}
                     <Route path="/home" element={<Main/>} ></Route>
                     <Route path="/add-question" element={<AddQuestion/>}></Route>
-                    <Route path="/question" element={<SingleQuestion/>}></Route>
+                    <Route path="/question/:id" element={<SingleQuestion/>}></Route>
+                    <Route path="/test" element={<Test />}></Route>
                 </Routes>      
             </>
         )

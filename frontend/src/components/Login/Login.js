@@ -67,7 +67,7 @@ export default class Login extends Component{
                     
                     {/* <p>{this.state.data.name}</p> */}
                     <form action="http://localhost:8000/login" method="post" onSubmit={this.tryLogin}>
-                        <p>Email</p>
+                        <p>Username</p>
                         {/* <small>Must be between 8 to 20 chars long and can only contain alphanumeric char, '.' and '_'</small> */}
                         <input type="text" name="username"></input>
                         <p>Password</p>
@@ -83,7 +83,7 @@ export default class Login extends Component{
         else{
             return (
                 < div className="login">
-                    <form action="http://localhost:8000/newUser" method="post">
+                    <form action="http://localhost:8000/newUser" method="post" >
                         <p>First Name</p>
                         <input type="text" name="firstname"></input>
                         <p>Last Name</p>

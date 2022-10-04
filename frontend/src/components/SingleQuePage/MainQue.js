@@ -6,14 +6,33 @@ import { Avatar } from '@mui/material';
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./index.css";
+import axios from 'axios';
 
-function MainQue(){
+function MainQue(props){
   const [show,setShow] = useState(false);
+  // console.log(props.qid)
+  // console.log(props.question)
+  // async function sendAnswer(data){
+  //   let response = await axios.post("http://localhost:8000/newAnswer",data)
+  // }
+
+  async function postAnswer(){
+    let details={}
+    details["question"] = props.question._id
+    details["user"] = window.localStorage.getItem("username")
+    details["answer"] = document.querySelector(".quill .ql-container .ql-editor").innerHTML
+    console.log(details)
+    let {data} = await axios.post("http://localhost:8000/newAnswer",details)
+    data = await data.data
+    console.log(data)
+
+  }
+  // console.log(props.question.title)
   return(
     <div className="main">
           <div className="main-container">
             <div className="main-top">
-              <h2 className="main-question">Title </h2>
+              <h2 className="main-question">{props.question.title}</h2>
               <Link to="/add-question">
                 <button>Ask Question</button>
               </Link>
@@ -25,7 +44,7 @@ function MainQue(){
               <div className="info">
                 <p>
                   Asked
-                  <span>Timespan</span>
+                  <span>{props.question.created_at}</span>
                 </p>
                 <p>
                   Active<span>today</span>
@@ -60,14 +79,14 @@ function MainQue(){
                   </div>
                 </div>
                 <div className="question-answer">
-                  <p>Here is question body</p>
+                  <p dangerouslySetInnerHTML={{__html:props.question.body}}></p>
                   <div className="user">
                     <small>
-                      asked "Timestamp"
+                      asked "{props.question.created_at}"
                     </small>
                     <div className="user-details">
                       <Avatar />
-                      <p>User name
+                      <p>{props.question.user}
                       </p>
                     </div>
                   </div>
@@ -127,43 +146,7 @@ function MainQue(){
                 No of Answers
               </p>
 
-                  <div className="all-questions-container"
-                  style={{
-                    marginTop:"0px",
-                  }}
-                  >
-                    <div className="all-questions-left">
-                      <div className="all-options">
-                        <p className="arrow">▲</p>
-
-                        <p className="arrow">0</p>
-
-                        <p className="arrow">▼</p>
-
-                        <Bookmark style={{color: "rgba(0, 0, 0, 0.25)",
-                        fontSize: "large",
-                        margin: "5px 0", }}/>
-
-                        <History style={{color: "rgba(0, 0, 0, 0.25)",
-                        fontSize: "large",
-                        margin: "5px 0", }}/>
-                      </div>
-                    </div>
-                    <div className="question-answer">
-                    <p>Here is question body</p>
-                      <div className="user">
-                        <small>
-                          asked "Timestamp"
-                        </small>
-                        <div className="user-details">
-                          <Avatar />
-                          <p>
-                          Username
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  
             </div>
             {/* <div className="questions">
               <div className="question">
@@ -193,7 +176,7 @@ function MainQue(){
             />
           </div>
           <button
-
+            onClick={()=>postAnswer()}
             style={{
               marginTop: "50px",
               maxWidth: "fit-content",
