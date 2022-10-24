@@ -16,10 +16,7 @@ const questionSchema = new mongoose.Schema({
     title : String,
     body : String,
     tags : [],
-    created_at : {
-      type : Date,
-      default : Date.now(),
-    },
+    created_at : String,
     user : String,
     answers:{
       type:Array,

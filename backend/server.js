@@ -80,7 +80,7 @@ app.post("/addQuestion",(req,res)=>{
     body:req.body.body,
     tags:req.body.tags,
     user:req.body.user,
-    created_at:new Date()
+    created_at:new Date().toDateString()
   })
   newQuestion.save()
   console.log(newQuestion)

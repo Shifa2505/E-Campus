@@ -25,6 +25,7 @@ function MainQue(props){
     let {data} = await axios.post("http://localhost:8000/newAnswer",details)
     data = await data.data
     console.log(data)
+    window.alert("answer is posted.")
 
   }
   // console.log(props.question.title)
