@@ -113,6 +113,8 @@ cursor: pointer;
 .all-questions-container{
   display: flex;
   margin: 30px;
+  box-shadow: 7px 6px 10px 0px rgb(0 50 60 / 50%);
+  padding:15px;
 }
 .comments{
   margin: 10px 0;

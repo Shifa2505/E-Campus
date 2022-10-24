@@ -28,7 +28,7 @@ export default function Answer(props) {
                       </div>
                     </div>
                     <div className="question-answer">
-                    <p dangerouslySetInnerHTML={{__html:props.body}}>Here is question body</p>
+                    <p dangerouslySetInnerHTML={{__html:props.body}}></p>
                       <div className="user">
                         <small>
                           asked "{props.time}"

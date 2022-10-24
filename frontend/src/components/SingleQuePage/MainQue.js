@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Bookmark} from '@mui/icons-material';
 import {History} from '@mui/icons-material';
@@ -7,14 +7,33 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./index.css";
 import axios from 'axios';
+import Answer from '../MainFrame/Answer/Answer';
 
 function MainQue(props){
   const [show,setShow] = useState(false);
+  const [answers,setAnswers] = useState([]);
   // console.log(props.qid)
   // console.log(props.question)
   // async function sendAnswer(data){
   //   let response = await axios.post("http://localhost:8000/newAnswer",data)
   // }
+
+  useEffect(() => {
+    // console.log("rendered")
+    getAnswer()
+  }, [])
+
+  async function getAnswer(){
+    let {data} = await axios.get(`http://localhost:8000/question/${props.qid}`)
+    // await console.log(data)
+    data = await data[0].answers
+    await console.log(data)
+    setAnswers(data)
+    // data = await data.data
+    // console.log("Data is :")
+    // await console.log(data)
+  }
+  
 
   async function postAnswer(){
     let details={}
@@ -144,9 +163,9 @@ function MainQue(props){
                 }}
 
               >
-                No of Answers
+                No of Answers <b>{answers.length}</b>
               </p>
-
+                {answers.map((answer,index)=><Answer key={index} time={answer.time} body={answer.body} user={answer.user} />)}
                   
             </div>
             {/* <div className="questions">

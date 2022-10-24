@@ -105,13 +105,13 @@ app.get("/getQuestions",(req,res)=>{
 
 app.get("/question/:id",(req,res)=>{
   models.questionModel.find({_id:req.params.id},(err,docs)=>{
-    console.log(docs)
+    // console.log(docs)
     res.send(docs)
   })
 })
 
 app.post("/newAnswer",(req,res)=>{
-  console.log(req.body)
+  // console.log(req.body)
   // let answers=[]
   // models.questionModel.find({_id:req.body.question},(err,docs)=>{
   //   answers=docs[0].answer

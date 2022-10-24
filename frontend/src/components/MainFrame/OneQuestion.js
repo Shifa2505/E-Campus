@@ -13,7 +13,7 @@ export default class OneQuestion extends Component{
         // console.log(this.url)
         // console.log(this.props.url)y
         // let url = `/questions/${this.props.question}`
-        console.log(this.props.tags)
+        // console.log(this.props.tags)
         const tagComponents = this.props.tags.map((x)=><span key={x} className="que-tags">{x}</span>)
       return (
         <div className='allquestion-content'>
