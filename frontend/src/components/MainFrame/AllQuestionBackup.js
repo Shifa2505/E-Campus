@@ -54,7 +54,8 @@ function AllQuestions(){
     user={question.user} 
     tags={question.tags} 
     timestamp={question.created_at} 
-    body={question.body}/>)
+    body={question.body}
+    answers={question.answers.length}/>)
   })}
   </div>)}
     

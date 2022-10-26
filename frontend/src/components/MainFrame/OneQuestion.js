@@ -8,6 +8,7 @@ export default class OneQuestion extends Component{
         super(props)
         this.props = props
         // this.url = `/question/${this.props.url}`;
+        // console.log(this.props)
       }
       render(){
         // console.log(this.url)
@@ -24,7 +25,7 @@ export default class OneQuestion extends Component{
      <span>Votes</span>
      </div>
      <div className="allquestion-opt">
-     <p>0</p>
+     <p>{this.props.answers}</p>
      <span>Answers</span>
      </div>
      <div className="allquestion-opt">
@@ -45,7 +46,7 @@ export default class OneQuestion extends Component{
          </div>
 
          <div className="user">
-         <small>{this.props.timestamp}</small>
+         <small>{new Date(this.props.timestamp).toDateString()}</small>
          <div className="user-details">
          <Avatar />
          <p>{this.props.user}</p>

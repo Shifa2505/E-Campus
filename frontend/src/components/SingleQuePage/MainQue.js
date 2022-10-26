@@ -27,7 +27,7 @@ function MainQue(props){
     let {data} = await axios.get(`http://localhost:8000/question/${props.qid}`)
     // await console.log(data)
     data = await data[0].answers
-    await console.log(data)
+    // await console.log(data)
     setAnswers(data)
     // data = await data.data
     // console.log("Data is :")
@@ -47,7 +47,7 @@ function MainQue(props){
     window.alert("answer is posted.")
 
   }
-  // console.log(props.question.title)
+  // console.log(answers)
   return(
     <div className="main">
           <div className="main-container">
@@ -64,7 +64,7 @@ function MainQue(props){
               <div className="info">
                 <p>
                   Asked
-                  <span>{props.question.created_at}</span>
+                  <span>{new Date(props.question.created_at).toDateString()}</span>
                 </p>
                 <p>
                   Active<span>today</span>
@@ -79,7 +79,7 @@ function MainQue(props){
 
             }}>
               <div className="all-questions-container">
-                <div className="all-questions-left">
+                {/* <div className="all-questions-left">
                   <div className="all-options">
                   <div className="all-option">
                     <p className="arrow">▲</p>
@@ -97,12 +97,12 @@ function MainQue(props){
                     margin: "5px 0", }}/>
                   </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="question-answer">
                   <p dangerouslySetInnerHTML={{__html:props.question.body}}></p>
                   <div className="user">
                     <small>
-                      asked "{props.question.created_at}"
+                      asked "{new Date(props.question.created_at).toDateString()}"
                     </small>
                     <div className="user-details">
                       <Avatar />
@@ -165,7 +165,7 @@ function MainQue(props){
               >
                 No of Answers <b>{answers.length}</b>
               </p>
-                {answers.map((answer,index)=><Answer key={index} time={answer.time} body={answer.body} user={answer.user} />)}
+                {answers.map((answer,index)=><Answer key={index} index={index} time={answer.time} body={answer.body} user={answer.user} question={props.qid} votes={answer.upvotes - answer.downvotes}/> )}
                   
             </div>
             {/* <div className="questions">

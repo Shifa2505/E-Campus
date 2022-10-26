@@ -2,8 +2,31 @@ import React from 'react'
 import {Bookmark} from '@mui/icons-material';
 import {History} from '@mui/icons-material';
 import { Avatar } from '@mui/material';
+import axios from 'axios';
 
 export default function Answer(props) {
+  async function upvote(){
+    console.log(props)
+    let request = {}
+    request["question"] = props.question
+    request["answer_index"] = props.index
+    let {data} = await axios.post("http://localhost:8000/upvote",request)
+    // console.log(data)
+    // if(data["status"]==="ok"){
+    //   console.log("upvote done")
+    // }
+  }
+  async function downvote(){
+    console.log(props)
+    let request = {}
+    request["question"] = props.question
+    request["answer_index"] = props.index
+    let {data} = await axios.post("http://localhost:8000/downvote",request)
+    // console.log(data)
+    // if(data["status"]==="ok"){
+    //   console.log("downvote done")
+    // }
+  }
   return (
     <div className="all-questions-container"
                   style={{
@@ -12,11 +35,11 @@ export default function Answer(props) {
                   >
                     <div className="all-questions-left">
                       <div className="all-options">
-                        <p className="arrow">▲</p>
+                        <p className="arrow" onClick={upvote}>▲</p>
 
-                        <p className="arrow">0</p>
+                        <p className="arrow">{props.votes}</p>
 
-                        <p className="arrow">▼</p>
+                        <p className="arrow" onClick={downvote}>▼</p>
 
                         <Bookmark style={{color: "rgba(0, 0, 0, 0.25)",
                         fontSize: "large",

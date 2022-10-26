@@ -46,7 +46,7 @@ app.post("/login",(req,res)=>{
   models.userModel.find({username:req.body.username,password:req.body.password},function (err,docs){
     if (err) {console.log(err);}
     else {
-      console.log(docs[0])
+      // console.log(docs[0])
       if(docs[0]!==undefined){
         // res.redirect("http://localhost:3000/home")
         res.send(JSON.stringify({ok:true}))
@@ -92,7 +92,7 @@ app.get("/getData",(req,res)=>{
 })
 
 app.get("/getQuestions",(req,res)=>{
-  models.questionModel.find((err,docs)=>{
+  models.questionModel.find({}).sort({created_at:-1}).exec((err,docs)=>{
     if(err){
       console.log(err.message)
     }
@@ -110,6 +110,48 @@ app.get("/question/:id",(req,res)=>{
   })
 })
 
+app.post("/upvote",(req,res)=>{
+  // console.log(req.body)
+  models.questionModel.findById(req.body.question,(err,docs)=>{
+    let answers = docs.answers
+    let changedAnswer = answers[req.body.answer_index]
+    // console.log(answers)
+    // console.log(changedAnswer)
+    // console.log(changedAnswer["upvotes"]===undefined)
+    if(changedAnswer["upvotes"]!==undefined){
+      changedAnswer["upvotes"] = changedAnswer["upvotes"] + 1
+    }
+    else{changedAnswer["upvotes"]=1}
+    answers[req.body.index] = changedAnswer
+    let question = docs
+    models.questionModel.findByIdAndUpdate(req.body.question,question,(err,docs)=>{
+      console.log("everything fine.")
+      res.send(JSON.stringify({status:"ok"}))
+    })
+  })
+})
+
+app.post("/downvote",(req,res)=>{
+  // console.log(req.body)
+  models.questionModel.findById(req.body.question,(err,docs)=>{
+    let answers = docs.answers
+    let changedAnswer = answers[req.body.answer_index]
+    // console.log(answers)
+    // console.log(changedAnswer)
+    // console.log(changedAnswer["upvotes"]===undefined)
+    if(changedAnswer["downvotes"]!==undefined){
+      changedAnswer["downvotes"] = changedAnswer["downvotes"] + 1
+    }
+    else{changedAnswer["downvotes"]=1}
+    answers[req.body.index] = changedAnswer
+    let question = docs
+    models.questionModel.findByIdAndUpdate(req.body.question,question,(err,docs)=>{
+      console.log("everything fine.")
+      res.send(JSON.stringify({status:"ok"}))
+    })
+  })
+})
+
 app.post("/newAnswer",(req,res)=>{
   // console.log(req.body)
   // let answers=[]
@@ -122,7 +164,7 @@ app.post("/newAnswer",(req,res)=>{
   //   //   console.log(docs[0])
   //   // })
   // })
-  models.questionModel.findOneAndUpdate({_id:req.body.question}, {$push : {answers : {body:req.body.answer,user:req.body.user,time:new Date().toDateString()}}}, {upsert: true}, function(err, doc) {
+  models.questionModel.findOneAndUpdate({_id:req.body.question}, {$push : {answers : {body:req.body.answer,user:req.body.user,time:new Date().toDateString(), upvotes:0, downvotes:0}}}, {upsert: true}, function(err, doc) {
     if (err) return res.send(500, {error: err});
     else{
       // console.log(doc)
