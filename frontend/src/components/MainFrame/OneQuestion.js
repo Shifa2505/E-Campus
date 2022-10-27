@@ -29,7 +29,7 @@ export default class OneQuestion extends Component{
      <span>Answers</span>
      </div>
      <div className="allquestion-opt">
-     <small>0 Views</small>
+     <small>{this.props.views} Views</small>
      </div>
      </div>
      </div>

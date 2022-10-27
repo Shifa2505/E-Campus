@@ -5,18 +5,18 @@ import './css/AllQuestions.css';
 import axios from "axios"
 import OneQuestion from './OneQuestion';
 
-function AllQuestions(){
-  const [questions,getQuestions] = useState([])
+function AllQuestions(props){
+  // const [questions,getQuestions] = useState([])
   
-  useEffect(()=>{
-      // console.log("fetching")
-      fetchData()
-    },[])
+  // useEffect(()=>{
+  //     // console.log("fetching")
+  //     fetchData()
+  //   },[])
     
-    const fetchData = async ()=>{
-      const {data} = await axios.get("http://localhost:8000/getQuestions")
-      getQuestions(data)
-    }
+  //   const fetchData = async ()=>{
+  //     const {data} = await axios.get("http://localhost:8000/getQuestions/something")
+  //     getQuestions(data)
+  //   }
 
     // console.log(questions)
   // let inner=""
@@ -42,10 +42,10 @@ function AllQuestions(){
 //   let questionDisplays = questions.map((question)=>{
 //     <OneQuestion title={question.title} user={question.user} tags={question.tags} timestamp={question.created_at} body={question.body}/>
 //   })
-// console.log(questions)
+// console.log(props.questions)
   return(
   <div className="allquestion-frame">
-    {questions.map((question)=>{
+    {props.questions.map((question)=>{
       // console.log(question._id)
       return(
     <OneQuestion key={question._id} 
@@ -55,7 +55,8 @@ function AllQuestions(){
     tags={question.tags} 
     timestamp={question.created_at} 
     body={question.body}
-    answers={question.answers.length}/>)
+    answers={question.answers.length}
+    views={question.views}/>)
   })}
   </div>)}
     

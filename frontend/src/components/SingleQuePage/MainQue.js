@@ -21,9 +21,11 @@ function MainQue(props){
   useEffect(() => {
     // console.log("rendered")
     getAnswer()
-  }, [])
+    // console.log(" answer fetched")
+  },[])
 
   async function getAnswer(){
+    // console.log("function to fetch called")
     let {data} = await axios.get(`http://localhost:8000/question/${props.qid}`)
     // await console.log(data)
     data = await data[0].answers
@@ -66,11 +68,11 @@ function MainQue(props){
                   Asked
                   <span>{new Date(props.question.created_at).toDateString()}</span>
                 </p>
-                <p>
+                {/* <p>
                   Active<span>today</span>
-                </p>
+                </p> */}
                 <p>
-                  Viewed<span>43times</span>
+                  Views<span>{props.question.views}</span>
                 </p>
               </div>
             </div>

@@ -24,7 +24,8 @@ const questionSchema = new mongoose.Schema({
     answers:{
       type:Array,
       default:[]
-    }
+    },
+    views:Number
     // comment_id: {
     //   type : mongoose.Schema.Types.ObjectId,
     //   ref : "Comments",

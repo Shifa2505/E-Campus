@@ -91,8 +91,19 @@ app.get("/getData",(req,res)=>{
   res.send(JSON.stringify({name:"Manav"}))
 })
 
-app.get("/getQuestions",(req,res)=>{
-  models.questionModel.find({}).sort({created_at:-1}).exec((err,docs)=>{
+app.get("/getQuestions/:sorting",(req,res)=>{
+  // console.log(req.params.sorting)
+  let sort;
+  if(req.params.sorting==="newest"){
+    sort={created_at:-1}
+  }
+  else if(req.params.sorting==="oldest"){
+    sort={created_at:1}
+  }
+  else{
+    sort={views:-1}
+  }
+  models.questionModel.find({}).sort(sort).exec((err,docs)=>{
     if(err){
       console.log(err.message)
     }
@@ -104,9 +115,15 @@ app.get("/getQuestions",(req,res)=>{
 })
 
 app.get("/question/:id",(req,res)=>{
-  models.questionModel.find({_id:req.params.id},(err,docs)=>{
+  models.questionModel.find({_id:req.params.id}).exec((err,docs)=>{
+    
     // console.log(docs)
+    // let views = docs[0]
+    // console.log(docs[0])
     res.send(docs)
+  })
+  models.questionModel.updateOne({_id:req.params.id},{$inc:{views:0.5}},(err,docs)=>{
+    console.log(docs)
   })
 })
 

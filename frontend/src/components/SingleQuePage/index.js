@@ -16,10 +16,12 @@ function Index(){
   },[])
 
   const fetchQuestion = async () =>{
+    // console.log("fetching")
     const {data} = await axios.get(`http://localhost:8000/question/${id}`)
     // console.log(data)
+    // console.log(typeof data)
     setQuestion(data[0])
-    // console.log(question)
+    // console.log(data[0])
   }
 
   return(
