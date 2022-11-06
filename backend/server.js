@@ -192,6 +192,23 @@ app.post("/newAnswer",(req,res)=>{
 
 })
 
+app.get("/getQuestions/tags/:sort/:tag",(req,res)=>{
+  let sort,tag;
+  tag="react"
+  if(req.params.sort==="newest"){
+    sort={created_at:-1}
+  }
+  else if(req.params.sort==="oldest"){
+    sort={created_at:1}
+  }
+  else{
+    sort={views:-1}
+  }
+  models.questionModel.find({tags:{$in:[req.params.tag]}}).sort(sort).exec((err,docs)=>{
+    res.send(docs)
+  })
+})
+
 app.listen(PORT, () => {
   console.log(`E-Campus API is running on PORT No- ${PORT}`);
 });

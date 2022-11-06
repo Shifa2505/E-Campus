@@ -29,7 +29,7 @@ function Sidebar(){
         <Link to="/">Questions</Link>
     </div>
     <div className="public-tag">
-        <p>Tags</p>
+    <Link to="/tags">Tags</Link>
         <p>Users</p>
     </div>
     </div>

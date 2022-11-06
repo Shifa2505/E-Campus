@@ -10,6 +10,7 @@ import SingleQuestion from "./components/SingleQuePage/index"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import Test from "./components/MainFrame/test"
+import SearchByTags from "./components/SearchByTags/SearchByTags";
 
 export default class App extends Component{
     // const text = fetch("localhost/8000")
@@ -33,6 +34,7 @@ export default class App extends Component{
                     <Route path="/add-question" element={<AddQuestion/>}></Route>
                     <Route path="/question/:id" element={<SingleQuestion/>}></Route>
                     <Route path="/test" element={<Test />}></Route>
+                    <Route path="/tags" element={<SearchByTags />}></Route>
                 </Routes>      
             </>
         )
