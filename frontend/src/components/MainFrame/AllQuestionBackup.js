@@ -55,7 +55,7 @@ function AllQuestions(props){
     tags={question.tags} 
     timestamp={question.created_at} 
     body={question.body}
-    answers={question.answers.length}
+    answers={question.answers}
     views={question.views}/>)
   })}
   </div>)}

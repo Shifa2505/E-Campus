@@ -2,6 +2,7 @@
   display: flex;
   min-height: 90vh;
   min-width: fit-content;
+  background-color: white;
 }
 .main-index-content{
   display:flex;

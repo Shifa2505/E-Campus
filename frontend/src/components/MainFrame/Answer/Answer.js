@@ -15,6 +15,7 @@ export default function Answer(props) {
     // if(data["status"]==="ok"){
     //   console.log("upvote done")
     // }
+    window.location.reload()
   }
   async function downvote(){
     console.log(props)
@@ -26,6 +27,7 @@ export default function Answer(props) {
     // if(data["status"]==="ok"){
     //   console.log("downvote done")
     // }
+    window.location.reload()
   }
   return (
     <div className="all-questions-container"

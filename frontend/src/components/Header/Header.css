@@ -5,6 +5,7 @@ navbar{
     top: 0;
     z-index: 1000;
     min-height: 5vh;
+    background-color: white;
   }
   .container-fluid{
     display: flex;

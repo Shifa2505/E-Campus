@@ -8,7 +8,15 @@ export default class OneQuestion extends Component{
         super(props)
         this.props = props
         // this.url = `/question/${this.props.url}`;
-        // console.log(this.props)
+        // console.log(this.props.answers)
+      }
+      getQuestionVotes(){
+        let count = 0;
+        this.props.answers.map((answer)=>{
+          count+=answer.upvotes
+          count+=answer.downvotes
+        })
+        return count;
       }
       render(){
         // console.log(this.url)
@@ -21,11 +29,11 @@ export default class OneQuestion extends Component{
         <div className="allquestion-left">
      <div className="allquestion-opts">
      <div className="allquestion-opt">
-     <p>0</p>
+     <p>{true && this.getQuestionVotes()}</p>
      <span>Votes</span>
      </div>
      <div className="allquestion-opt">
-     <p>{this.props.answers}</p>
+     <p>{this.props.answers.length}</p>
      <span>Answers</span>
      </div>
      <div className="allquestion-opt">

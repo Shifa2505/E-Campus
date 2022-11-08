@@ -26,7 +26,7 @@ function Sidebar(){
     <div className="sideLink">
     <div className="sideTags">
         <Public style={{color:"rgba(245,162,9)", marginRight:"5px" , fontSize:"1rem"}}/>
-        <Link to="/">Questions</Link>
+        <Link to="/home">Questions</Link>
     </div>
     <div className="public-tag">
     <Link to="/tags">Tags</Link>
