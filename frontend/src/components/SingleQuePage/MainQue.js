@@ -47,6 +47,7 @@ function MainQue(props){
     data = await data.data
     console.log(data)
     window.alert("answer is posted.")
+    window.location.reload()
 
   }
   // console.log(answers)
