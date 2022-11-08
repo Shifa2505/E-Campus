@@ -7,7 +7,7 @@ export default class Login extends Component{
     constructor(props){
         super(props)
         this.props = props
-        this.state = {isRegistered : false, data:null}
+        this.state = {isRegistered : true, data:null}
         this.changeRegistered = this.changeRegistered.bind(this)
         // this.getData = this.getData.bind(this)
         

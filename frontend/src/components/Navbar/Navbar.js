@@ -18,19 +18,26 @@ function Navbar(){
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
       <div className="nav-centre mx-auto">
-      <form className="d-flex">
+      {/* <form className="d-flex">
       <SearchIcon style={{color:"#ccc", marginTop:"6px"}}/>
       <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      </form>
+      </form> */}
       </div>
       <ul className="navbar-nav ms-auto">
       <div className="nav-right ">
       <li className="nav-item mx-2 my-3 right">
-       <Avatar />
+        {(window.localStorage.getItem("loginOk")==='true') && <Avatar sx={{ bgcolor: "#763cb0" }} onClick={()=>{
+        console.log("avatar clicked")
+        if(window.confirm("Log Out?")===true){
+          window.localStorage.setItem('loginOk',false)
+          window.location.href="http://localhost:3000/"
+        }
+        }}>{window.localStorage.getItem("username").charAt(0)}</Avatar>}
+      
       </li>
-      <li className="nav-item mx-2 my-3 right">
+      {/* <li className="nav-item mx-2 my-3 right">
       <InboxIcon />
-      </li>
+      </li> */}
       </div>
       </ul>
         </div>
